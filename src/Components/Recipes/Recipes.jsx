@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
+
 export default function Recipes() {
     const [isLoading, setIsLoading] = useState(true);
     const [recipes, setRecipes] = useState([]);
@@ -8,16 +9,17 @@ export default function Recipes() {
     useEffect(() => {
         getRecipes();
         return () => {};
-    }, [recipes]);
+    }, []);
 
-    // https://forkify-api.herokuapp.com/api/search?q=pizza
+// https://forkify-api.herokuapp.com/api/v2/recipes?search=pizza&key=19eb5975-84dd-41b8-885b-ece968743a0c
+
 
     async function getRecipes() {
         let { data } = await axios.get(
             "https://forkify-api.herokuapp.com/api/search?q=pizza"
         );
         setRecipes(data.recipes);
-        
+
         setIsLoading(false);
     }
 

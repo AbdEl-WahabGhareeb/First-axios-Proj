@@ -2,13 +2,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import About from "./Components/About/About";
 import Layout from "./Components/Layout/Layout";
-import Home from "./Components/Recipes/Recipes";
+import Home from "./Components/Home/Home";
 import Notfound from "./Components/Notfound/Notfound";
 import Contact from "./Components/Contact/Contact";
 import Portfolio from "./Components/Portfolio/Portfolio";
 import Movies from "./Components/Movies/Movies";
 import Recipes from "./Components/Recipes/Recipes";
-import Loader from "./Components/Loader/Loader";
 export default function App() {
     let routes = createBrowserRouter([
         {
