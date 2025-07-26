@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
-export default function Home() {
+export default function Recipes() {
     const [isLoading, setIsLoading] = useState(true);
     const [recipes, setRecipes] = useState([]);
 
