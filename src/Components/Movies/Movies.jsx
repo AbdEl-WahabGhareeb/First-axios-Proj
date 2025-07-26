@@ -18,48 +18,60 @@ export default function Movies() {
         );
 
         setMovies(data.results);
+        console.log(data.results);
+
         setIsLoading(false);
     }
 
     return (
         <>
-            <div className="container movies text-center">
-                {isLoading ? <Loader /> : null}
-                <div className="row g-4">
-                    {movies.map((movie) => (
-                        <div key={movie.id} className="col-md-4">
-                            <div className="inner p-3">
-                                <div
-                                    className="image-container"
-                                    style={{
-                                        height: "400px",
-                                        overflow: "hidden",
-                                        marginBottom: "1rem",
-                                    }}
-                                >
-                                    <img
-                                        src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+            <div className=" movies text-center">
+                <div className="container pb-5">
+                    {isLoading ? <Loader /> : null}
+                    <div className="row g-4">
+                        {movies.map((movie) => (
+                            <div key={movie.id} className="col-md-4">
+                                <div className="inner p-3">
+                                    <div
+                                        className="image-container"
                                         style={{
-                                            width: "100%",
-                                            height: "100%",
-                                            objectFit: "cover",
+                                            height: "400px",
+                                            overflow: "hidden",
+                                            marginBottom: "1rem",
                                         }}
-                                        alt={movie.title || movie.name}
-                                    />
+                                    >
+                                        <img
+                                            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                                            style={{
+                                                width: "100%",
+                                                height: "100%",
+                                                objectFit: "fill",
+                                            }}
+                                            alt={movie.title || movie.name}
+                                        />
+                                    </div>
+                                    <h2 className="h4 my-3">
+                                        {movie.title ? movie.title : movie.name}
+                                    </h2>
+                                    <p>
+                                        {movie.overview
+                                            .split(" ")
+                                            .slice(0, 10)
+                                            .join(" ")}
+                                        ...
+                                    </p>
+                                    <a
+                                        href={`https://www.themoviedb.org/movie/${movie.id}`}
+                                        className="btn btn-outline-light w-100 mt-3"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        View Details
+                                    </a>
                                 </div>
-                                <h2 className="h4 my-3">
-                                    {movie.title ? movie.title : movie.name}
-                                </h2>
-                                <p>
-                                    {movie.overview
-                                        .split(" ")
-                                        .slice(0, 10)
-                                        .join(" ")}
-                                    ...
-                                </p>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
         </>

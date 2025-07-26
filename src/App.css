@@ -98,6 +98,8 @@ footer .lower-footer {
 }
 
 .recipes {
+    background-color: #42e8c6;
+
     margin-top: 120px;
     min-height: calc(-106px + 100vh);
 }
@@ -105,4 +107,21 @@ footer .lower-footer {
 .movies {
     margin-top: 120px;
     min-height: calc(-106px + 100vh);
+    background-color: #42e8c6;
+}
+
+.movies .inner {
+    background-color: #1abc9c;
+    border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+    .movies .inner {
+        height: 85vh;
+    }
+}
+
+.recipes .inner {
+    background-color: #1abc9c;
+    border-radius: 10px;
 }
